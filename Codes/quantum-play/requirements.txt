@@ -1,0 +1,5 @@
+matplotlib
+qiskit[visualization]
+qiskit-ibm-runtime
+jupyter
+python-dotenv
