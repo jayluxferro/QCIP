@@ -7,3 +7,4 @@ tmp/
 .vscode/
 test.py
 .env
+.DS_Store
