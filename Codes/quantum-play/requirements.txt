@@ -4,3 +4,4 @@ qiskit-ibm-runtime
 jupyter
 python-dotenv
 qiskit_qasm3_import
+qiskit-aer
