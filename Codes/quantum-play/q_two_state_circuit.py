@@ -7,6 +7,7 @@ qc = QuantumCircuit(2)
 qc.h(0)
 qc.cx(0,1)
 
+qc.draw("mpl")
 # plot using a Statevector
 state = Statevector(qc)
 plot_state_city(state)
