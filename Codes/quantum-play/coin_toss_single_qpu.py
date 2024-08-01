@@ -16,7 +16,7 @@ q = QuantumRegister(1)
 c = ClassicalRegister(1)
 
 qc = QuantumCircuit(q, c)
-# qc.h(q[0])
+#qc.h(q[0])
 qc.measure(q, c)
 
 qc.draw('mpl')
