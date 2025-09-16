@@ -1,0 +1,11 @@
+__pycache__/
+.env
+resources/
+.venv/
+.idea/
+tmp/
+.vscode/
+test.py
+.env
+.DS_Store
+
