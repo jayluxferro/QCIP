@@ -8,4 +8,4 @@ tmp/
 test.py
 .env
 .DS_Store
-
+.ipynb_checkpoints/
