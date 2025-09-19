@@ -3,7 +3,7 @@ import numpy as np
 
 
 def test_for_normalization(a, b):
-    assert round(pow(a, 2) + pow(b, 2)) == 1
+    assert round(pow(a, 2) + pow(b, 2), 1) == 1.0
 
 
 alpha = sqrt(1 / 2)
