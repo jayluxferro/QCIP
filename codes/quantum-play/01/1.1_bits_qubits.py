@@ -29,6 +29,11 @@ for b in bits:
 for b in bits:
     key = b
     value = bits[b]
+    print(key, ": ", value)  # prints the key : value of the key
     zero_measurement_value = value[0]
-    prob = pow(zero_measurement_value, 2)
-    print(b, ": ", prob)
+    one_measurement_value = value[1]
+    prob_zero_measurement = pow(zero_measurement_value, 2)
+    prob_one_measurement = pow(one_measurement_value, 2)
+    print("zero measurement: ", prob_zero_measurement)
+    print("one measurement: ", prob_one_measurement)
+    print("------------")
