@@ -1,6 +1,5 @@
-from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit, qasm2
 import matplotlib.pyplot as plt
-from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2 as Sampler
+from qiskit_ibm_runtime import QiskitRuntimeService
 from qiskit.visualization import plot_histogram
 from dotenv import load_dotenv
 from os import getenv
