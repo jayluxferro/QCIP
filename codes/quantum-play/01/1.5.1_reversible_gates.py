@@ -6,9 +6,9 @@ print("Reversible quantum gates")
 print("------------------------------")
 
 qubits = {
-    "|0\u232a": np.array([1, 0]),
-    "|1\u232a": np.array([0, 1]),
-    "(|0\u232a+|1\u232a)/\u221a2": 1 / sqrt(2) * np.array([1, 1]),
+    "|0>": np.array([1, 0]),
+    "|1>": np.array([0, 1]),
+    "(|0> + |1>)/√2": 1 / sqrt(2) * np.array([1, 1]),
 }
 
 for q in qubits:
@@ -31,7 +31,7 @@ for g in gates:
     if gates[g].all == np.matrix.conjugate(gates[g]).all:
         diff = g + " (Same as original)"
     else:
-        diff = g + "\u2020 (Complex numbers conjugated)"
+        diff = g + "† (Complex numbers conjugated)"
 
     print("Reversed", g, "=", diff, "\n", np.matrix.conjugate(gates[g]).round(3))
 

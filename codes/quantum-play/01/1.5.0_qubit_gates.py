@@ -10,9 +10,9 @@ print("Vector representations of our qubits:")
 print("-------------------------------------")
 
 qubits = {
-    "|0\u27e9": np.array([1, 0]),
-    "|1\u27e9": np.array([0, 1]),
-    "(|0\u27e9+|1\u27e9)/\u221a2": 1 / sqrt(2) * np.array([1, 1]),
+    "|0>": np.array([1, 0]),
+    "|1>": np.array([0, 1]),
+    "(|0> + |1>)/√2": 1 / sqrt(2) * np.array([1, 1]),
 }
 
 for q in qubits:
@@ -51,11 +51,11 @@ print("Vector representations of our two qubits:")
 print("-----------------------------------------")
 
 twoqubits = {
-    "|00\u27e9": np.array([1, 0, 0, 0]),
-    "|01\u27e9": np.array([0, 1, 0, 0]),
-    "|10\u27e9": np.array([0, 0, 1, 0]),
-    "|11\u27e9": np.array([0, 0, 0, 1]),
-    "|PH\u27e9": np.array([0.5, -0.5, 0.5, -0.5]),
+    "|00>": np.array([1, 0, 0, 0]),
+    "|01>": np.array([0, 1, 0, 0]),
+    "|10>": np.array([0, 0, 1, 0]),
+    "|11>": np.array([0, 0, 0, 1]),
+    "|PH>": np.array([0.5, -0.5, 0.5, -0.5]),
 }
 
 for b in twoqubits:
