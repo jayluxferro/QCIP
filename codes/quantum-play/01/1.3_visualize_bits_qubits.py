@@ -18,9 +18,9 @@ angles = {"theta": pi / 2, "phi": 0}
 bits = {
     "bit = 0": {"theta": 0, "phi": 0},
     "bit = 1": {"theta": pi, "phi": 0},
-    "|0\u27e9": {"theta": 0, "phi": 0},
-    "|1\u27e9": {"theta": pi, "phi": 0},
-    "a|0\u27e9+b|1\u27e9": angles,
+    "|0>": {"theta": 0, "phi": 0},
+    "|1>": {"theta": pi, "phi": 0},
+    "a|0> + b|1>": angles,
 }
 
 # Print the bits and qubits on the Bloch sphere
