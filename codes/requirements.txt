@@ -4,7 +4,7 @@ mlx==0.29.4
 qiskit[visualization]==2.2.3
 qiskit-ibm-runtime==0.43.1
 jupyter==1.1.1
-python-dotenv==1.2.1
+python-dotenv==1.2.2
 qiskit_qasm3_import==0.6.0
 qiskit-aer==0.17.2  # (https://github.com/Qiskit/qiskit-aer)
 pylatexenc==2.10
