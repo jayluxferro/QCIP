@@ -1,5 +1,10 @@
-from time import time
+"""
+Measure how long it takes to enumerate all 2^word_size bit strings.
 
+@author: Jay (@jayluxferro)
+"""
+
+from time import time
 
 word_size = int(input("Enter word size in bits (e.g., 8, 16, 32, 64): "))
 

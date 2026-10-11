@@ -1,32 +1,36 @@
-from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit
+"""
+Single coin toss on a real IBM Quantum backend.
+
+Submits a single-qubit Hadamard circuit to the least-busy operational
+QPU via the Qiskit Runtime SamplerV2. Credentials are read from .env.
+
+@author: Jay (@jayluxferro)
+"""
+
+from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
 import matplotlib.pyplot as plt
 from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2 as Sampler
 from dotenv import load_dotenv
 from os import getenv
 
-# Load environment variables from the .env file
 load_dotenv()
 
 q = QuantumRegister(1)
 c = ClassicalRegister(1)
 
-
 qc = QuantumCircuit(q, c)
-# qc.h(q[0])
-
-# measurement
+qc.h(q[0])
 qc.measure(q, c)
 
-qc.draw("mpl", filename="single_coin_toss.jpg")  # text, latex, latex_source, and mpl
+qc.draw("mpl")
 plt.show()
 
-# Run on QPU
 service = QiskitRuntimeService(
     channel="ibm_quantum_platform", instance=getenv("CRN"), token=getenv("API_KEY")
 )
 
 backend = service.least_busy(operational=True, simulator=False)
-simulator = Sampler(backend)
+sampler = Sampler(backend)
 
-job = simulator.run([qc], shots=1024)
+job = sampler.run([qc], shots=1024)
 print(job.job_id())
