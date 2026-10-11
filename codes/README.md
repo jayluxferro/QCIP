@@ -69,7 +69,7 @@ and an active IBM Quantum account; everything else runs locally on Aer.
 | 4.3 | Quantum phase estimation |
 | 4.4 | Shor's algorithm (order finding + continued fractions) |
 
-### quantum-play/05 — Next steps
+### quantum-play/05 — Error correction & density matrices
 
 | Section | Topic |
 |---|---|

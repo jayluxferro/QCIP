@@ -1,5 +1,7 @@
 # QCIP Code Rewrite — Specification
 
+> **Status:** implemented. Chapters 01–05 are built, the `uv` migration is complete, and the MIT license is published. This spec documents phase 1 (chapter 01 consolidation + `uv`); §10 lists the chapters added afterward.
+
 ## 1. Objective
 
 Consolidate three drifting iterations of course code into **one canonical, harmonized, `uv`-managed** Python project under `codes/`, organized by chapter, with consistent naming, style, and no duplicated/dead artifacts. This is the "whole project rewrite."
@@ -100,3 +102,18 @@ Remove: `codes/quantum-play/01/.ipynb_checkpoints/`, stray `*.jpg`/`*.qasm`/`*.p
 - `uv` is the only package manager (no `requirements.txt`).
 - Every file follows §5 rules; no secrets or artifacts committed.
 - Chapter map documented in `codes/README.md`.
+
+## 10. Chapters added after phase 1
+
+Following Thomas Wong, *Introduction to Classical and Quantum Computing*:
+
+| Chapter | Topic (Wong) | Scripts |
+|---|---|---|
+| `quantum-play/02` | Linear algebra + multiple qubits & entanglement (Ch 3–4) | 2.0–2.6 |
+| `quantum-play/03` | Entanglement & protocols — teleportation, superdense, CHSH, BB84 (Ch 6) | 3.0–3.3 |
+| `quantum-play/04` | Algorithms — Deutsch-Jozsa, Grover, QFT, QPE, Shor (Ch 7) | 4.0–4.4 |
+| `quantum-play/05` | Error correction & density matrices (Ch 8) | 5.0–5.1 |
+
+All chapters are `uv`-runnable and Aer-verified (`scripts/run_all_scripts.sh`).
+Course PDFs (`books/`, `assignments/`, `slides/`) were removed from tracking and
+scrubbed from git history; they remain local only.
