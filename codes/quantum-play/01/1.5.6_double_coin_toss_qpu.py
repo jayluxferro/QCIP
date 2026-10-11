@@ -4,7 +4,7 @@ Double coin toss on a real IBM Quantum backend.
 @author: Jay (@jayluxferro)
 """
 
-from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
+from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, transpile
 import matplotlib.pyplot as plt
 from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2 as Sampler
 from dotenv import load_dotenv
@@ -28,6 +28,12 @@ service = QiskitRuntimeService(
 )
 
 backend = service.least_busy(operational=True, simulator=False)
+
+# Transpile the circuit for the target backend's basis gates and coupling map.
+qc = transpile(qc, backend)
+qc.draw("mpl")
+plt.show()
+
 sampler = Sampler(backend)
 
 job = sampler.run([qc], shots=2000)
