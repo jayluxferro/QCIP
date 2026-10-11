@@ -1,0 +1,15 @@
+[project]
+name = "qcip"
+version = "0.1.0"
+description = "Quantum Computing & Information Processing — course code (QCIP)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "qiskit[visualization]==2.2.3",
+    "qiskit-aer==0.17.2",
+    "qiskit-ibm-runtime==0.43.1",
+    "numpy==2.3.4",
+    "matplotlib==3.10.7",
+    "python-dotenv==1.2.1",
+    "jupyter==1.1.1",
+]

@@ -1,8 +1,10 @@
 """
-Double coin toss QPU
+Double coin toss on a real IBM Quantum backend.
+
+@author: Jay (@jayluxferro)
 """
 
-from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit
+from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
 import matplotlib.pyplot as plt
 from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2 as Sampler
 from dotenv import load_dotenv
@@ -14,20 +16,19 @@ q = QuantumRegister(2)
 c = ClassicalRegister(2)
 
 qc = QuantumCircuit(q, c)
-
-# Measurement
+qc.h(q[0])
+qc.h(q[1])
 qc.measure(q, c)
 
-qc.draw("mpl", filename="double_coin_toss_circuit.jpg")
+qc.draw("mpl")
 plt.show()
 
-# Run on QPU
 service = QiskitRuntimeService(
     channel="ibm_quantum_platform", instance=getenv("CRN"), token=getenv("API_KEY")
 )
 
 backend = service.least_busy(operational=True, simulator=False)
-simulator = Sampler(backend)
+sampler = Sampler(backend)
 
-job = simulator.run([qc], shots=2000)
+job = sampler.run([qc], shots=2000)
 print(job.job_id())

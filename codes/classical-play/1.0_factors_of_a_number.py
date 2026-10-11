@@ -1,4 +1,11 @@
-def factors_of_number(n):
+"""
+Find all factors of a given number (classical).
+
+@author: Jay (@jayluxferro)
+"""
+
+
+def factors_of_number(n: int) -> list:
     """Return the factors of a given number."""
     if n < 1:
         return []
@@ -8,9 +15,9 @@ def factors_of_number(n):
         print(f"Checking if {i} is a factor of {n}...")
         if n % i == 0:
             print(f"{i} is a factor of {n}.")
-            print(", ".join([str(x) for x in factors]))
             factors.append(i)
-            print("\n")
+            print(", ".join(str(x) for x in factors))
+            print()
 
     return factors
 

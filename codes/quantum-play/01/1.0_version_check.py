@@ -1,5 +1,8 @@
-# Set versions variable to the current Qiskit versions
 """
+Check the installed Qiskit and Qiskit IBM Runtime versions.
+
+Run from `codes/` with:  uv run python quantum-play/01/1.0_version_check.py
+
 @author: Jay (@jayluxferro)
 """
 

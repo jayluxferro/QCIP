@@ -1,39 +1,48 @@
+"""
+Bits vs. qubits: vector representations and measurement probabilities.
+
+A classical bit is either 0 or 1. A qubit is a normalized superposition
+|psi> = a|0> + b|1> with |a|^2 + |b|^2 = 1. Measuring a qubit yields
+|0> with probability |a|^2 and |1> with probability |b|^2.
+
+@author: Jay (@jayluxferro)
+"""
+
 from math import sqrt, pow
 import numpy as np
 
 
-def test_for_normalization(a, b):
+def test_for_normalization(a: float, b: float) -> None:
+    """Assert |a|^2 + |b|^2 == 1 (to one decimal place)."""
     assert round(pow(a, 2) + pow(b, 2), 1) == 1.0
 
 
 alpha = sqrt(1 / 2)
 beta = sqrt(1 / 2)
 
-# test for normalization
+# A valid qubit state must be normalized.
 test_for_normalization(alpha, beta)
 
-# setup bits and qubits
+# Vector representations of classical bits and qubits.
 bits = {
-    "0": np.array([1, 0]),
-    "1": np.array([0, 1]),
-    "|0>": np.array([1, 0]),
-    "|1>": np.array([0, 1]),
+    "0": np.array([1, 0]),  # classical 0
+    "1": np.array([0, 1]),  # classical 1
+    "|0>": np.array([1, 0]),  # collapses to classical 0
+    "|1>": np.array([0, 1]),  # collapses to classical 1
     "a|0> + b|1>": np.array([alpha, beta]),
 }
 
-# print the vectors
+# Print the vectors.
 for b in bits:
-    print(b, ": ", bits[b])  # prints the key : value of the key
+    print(b, ": ", bits[b])
+print("-----------------")
 
-# measurement of bits and qubits
+# Measurement probabilities for each state.
 for b in bits:
-    key = b
     value = bits[b]
-    print(key, ": ", value)  # prints the key : value of the key
-    zero_measurement_value = value[0]
-    one_measurement_value = value[1]
-    prob_zero_measurement = pow(zero_measurement_value, 2)
-    prob_one_measurement = pow(one_measurement_value, 2)
-    print("zero measurement: ", prob_zero_measurement)
-    print("one measurement: ", prob_one_measurement)
+    print(b, ": ", value)
+    prob_zero = pow(value[0], 2)
+    prob_one = pow(value[1], 2)
+    print("zero measurement: ", prob_zero)
+    print("one measurement: ", prob_one)
     print("------------")
