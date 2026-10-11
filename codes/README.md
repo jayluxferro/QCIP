@@ -27,12 +27,19 @@ and an active IBM Quantum account; everything else runs locally on Aer.
 
 ## Chapter map
 
-### classical-play
+### classical-play — Classical information & computation
 
 | File | Topic |
 |---|---|
-| `1.0_factors_of_a_number.py` | Classical factoring |
-| `2.0_compute_time_per_word_size.py` | Word size vs. computation time |
+| `1.0_factors_of_a_number.py` | Factoring |
+| `1.1_binary_encoding.py` | Binary, hex, ASCII encoding |
+| `1.2_logic_gates.py` | Truth tables (NOT/AND/OR/XOR/NAND) |
+| `1.3_adders.py` | Half adder, full adder, ripple-carry |
+| `1.4_boolean_algebra.py` | Identities & simplification |
+| `1.5_reversible_gates.py` | Toffoli gate & reversibility |
+| `1.6_error_correction.py` | Parity & repetition codes |
+| `2.0_compute_time_per_word_size.py` | Word size vs. compute time |
+| `2.1_complexity.py` | Big-O / asymptotic notation |
 
 ### quantum-play/01 — Qubits, superposition, measurement & gates
 

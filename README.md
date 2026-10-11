@@ -18,7 +18,7 @@ uv run python quantum-play/01/1.5.0_single_coin_toss.py
 
 ## Chapters
 
-- **classical-play** — classical bits, factoring, word size vs. time
+- **classical-play** — bits & encoding, logic gates, adders, boolean algebra, reversible logic, error correction, complexity
 - **quantum-play/01** — qubits, superposition, measurement, gates
 - **quantum-play/02** — linear algebra, multiple qubits, entanglement
 - **quantum-play/03** — teleportation, superdense coding, CHSH, BB84

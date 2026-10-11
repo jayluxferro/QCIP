@@ -31,6 +31,14 @@ run "2.2 multi-qubit states" "" quantum-play/02/2.2_multi_qubit_states.py
 run "3.3 bb84" "" quantum-play/03/3.3_bb84.py
 run "4.4 shor" "" quantum-play/04/4.4_shor.py
 run "5.1 density matrices" "" quantum-play/05/5.1_density_matrices.py
+# classical (numpy, no input)
+run "classical 1.1 binary encoding" "" classical-play/1.1_binary_encoding.py
+run "classical 1.2 logic gates" "" classical-play/1.2_logic_gates.py
+run "classical 1.3 adders" "" classical-play/1.3_adders.py
+run "classical 1.4 boolean algebra" "" classical-play/1.4_boolean_algebra.py
+run "classical 1.5 reversible gates" "" classical-play/1.5_reversible_gates.py
+run "classical 1.6 error correction" "" classical-play/1.6_error_correction.py
+run "classical 2.1 complexity" "" classical-play/2.1_complexity.py
 # plotting + simulator
 run "1.2 bloch sphere" "" quantum-play/01/1.2_bloch_sphere_visualization.py
 run "1.3 visualize bits/qubits" "" quantum-play/01/1.3_visualize_bits_qubits.py

@@ -115,5 +115,7 @@ Following Thomas Wong, *Introduction to Classical and Quantum Computing*:
 | `quantum-play/05` | Error correction & density matrices (Ch 8) | 5.0–5.1 |
 
 All chapters are `uv`-runnable and Aer-verified (`scripts/run_all_scripts.sh`).
+`classical-play/` was expanded to 9 scripts (encoding, logic gates, adders,
+boolean algebra, reversible logic, error correction, and complexity).
 Course PDFs (`books/`, `assignments/`, `slides/`) were removed from tracking and
 scrubbed from git history; they remain local only.
