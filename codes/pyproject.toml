@@ -10,6 +10,6 @@ dependencies = [
     "qiskit-ibm-runtime==0.43.1",
     "numpy==2.3.4",
     "matplotlib==3.10.7",
-    "python-dotenv==1.2.1",
+    "python-dotenv==1.2.2",
     "jupyter==1.1.1",
 ]
