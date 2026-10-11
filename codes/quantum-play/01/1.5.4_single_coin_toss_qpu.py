@@ -11,7 +11,7 @@ from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, transpile
 import matplotlib.pyplot as plt
 from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2 as Sampler
 from dotenv import load_dotenv
-from os import getenv
+from os import getenv, makedirs
 
 load_dotenv()
 
@@ -26,7 +26,7 @@ qc.draw("mpl")
 plt.show()
 
 service = QiskitRuntimeService(
-    channel="ibm_quantum_platform", instance=getenv("CRN"), token=getenv("API_KEY")
+    channel=getenv("IBM_CHANNEL"), instance=getenv("IBM_INSTANCE"), token=getenv("IBM_QUANTUM_API_KEY")
 )
 
 backend = service.least_busy(operational=True, simulator=False)
@@ -39,4 +39,10 @@ plt.show()
 sampler = Sampler(backend)
 
 job = sampler.run([qc], shots=1024)
-print(job.job_id())
+job_id = job.job_id()
+print(job_id)
+
+# Store the job ID so the *_results.py script can retrieve it later.
+makedirs("out", exist_ok=True)
+with open("out/single_coin_toss_job_id.txt", "w") as f:
+    f.write(job_id)

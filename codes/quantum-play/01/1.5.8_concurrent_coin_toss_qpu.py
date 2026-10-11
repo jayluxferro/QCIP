@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, transpile
 from qiskit_ibm_runtime import QiskitRuntimeService, SamplerV2 as Sampler
 from dotenv import load_dotenv
-from os import getenv
+from os import getenv, makedirs
 
 load_dotenv()
 
@@ -26,9 +26,8 @@ def generate_coin_toss_circuit(coins: int) -> QuantumCircuit:
     qc.measure(q, c)
     return qc
 
-
 service = QiskitRuntimeService(
-    channel="ibm_quantum_platform", instance=getenv("CRN"), token=getenv("API_KEY")
+    channel=getenv("IBM_CHANNEL"), instance=getenv("IBM_INSTANCE"), token=getenv("IBM_QUANTUM_API_KEY")
 )
 
 backend = service.least_busy(operational=True, simulator=False)
@@ -42,4 +41,10 @@ for circuit in circuits:
     plt.show()
 
 job = sampler.run(circuits, shots=15000)
-print(job.job_id())
+job_id = job.job_id()
+print(job_id)
+
+# Store the job ID so the *_results.py script can retrieve it later.
+makedirs("out", exist_ok=True)
+with open("out/concurrent_coin_toss_job_id.txt", "w") as f:
+    f.write(job_id)

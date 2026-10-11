@@ -26,7 +26,7 @@ codes/
 ├── uv.lock                 # locked dependency resolution
 ├── README.md               # how to run, chapter map
 ├── .gitignore
-├── .env.example            # CRN / API_KEY (secrets never committed)
+├── .env.example            # documents the required IBM_* environment variables
 ├── classical-play/
 │   ├── 1.0_factors_of_a_number.py
 │   └── 2.0_compute_time_per_word_size.py
@@ -35,7 +35,9 @@ codes/
         └── (see §4)
 ```
 
-Secrets live only in `codes/quantum-play/**/.env` (gitignored). A single shared `.env.example` documents the required keys. No per-file secrets, no hardcoded job IDs.
+IBM credentials are read from the environment (`IBM_CHANNEL`, `IBM_INSTANCE`,
+`IBM_QUANTUM_API_KEY`) or from a `.env` file, via `load_dotenv()` + `os.getenv()`
+(environment variables take precedence). No hardcoded tokens.
 
 ## 4. Proposed canonical content map (quantum-play/01)
 
@@ -71,7 +73,7 @@ Section grouping: foundations (1.0–1.4) → coin toss & QPU (1.5) → gates (1
 ## 5. Harmonization rules (applied to every file)
 
 1. Consistent header: module docstring + `@author: Jay (@jayluxferro)` block comment.
-2. No hardcoded IBM job IDs / tokens / CRNs — use `.env` (`load_dotenv()` + `getenv("CRN"/"API_KEY")`).
+2. No hardcoded IBM job IDs / tokens / CRNs — read `IBM_CHANNEL`, `IBM_INSTANCE`, `IBM_QUANTUM_API_KEY` from the environment or a `.env` file (`load_dotenv()` + `os.getenv()`).
 3. `qiskit_ibm_runtime` version via `qiskit_ibm_runtime.version.__version__` (not `__version__`).
 4. Use `SamplerV2`, `QiskitRuntimeService`, `AerSimulator` consistently; `transpile` before running where sensible.
 5. Remove commented-out dead code that duplicates; keep pedagogically useful comments.

@@ -9,11 +9,18 @@ cd codes
 uv sync
 ```
 
-Secrets are read from a `.env` file (never committed). Copy the template and fill in your IBM Quantum credentials:
+The `*_qpu*.py` scripts read your IBM Quantum credentials from the environment
+or from a `.env` file. Environment variables take precedence. Either:
 
 ```bash
+# Option A — environment variables
+export IBM_CHANNEL=ibm_quantum_platform
+export IBM_INSTANCE=your-instance      # e.g. ibm-q/open/main
+export IBM_QUANTUM_API_KEY=your-key
+
+# Option B — .env file (for users without exported vars)
 cp .env.example .env
-# edit .env  ->  CRN="..."  API_KEY="..."
+# edit .env -> IBM_CHANNEL / IBM_INSTANCE / IBM_QUANTUM_API_KEY
 ```
 
 ## Run a script
@@ -22,8 +29,9 @@ cp .env.example .env
 uv run python quantum-play/01/1.5.0_single_coin_toss.py
 ```
 
-Scripts that touch a real IBM backend (the `*_qpu*.py` files) need a valid `.env`
-and an active IBM Quantum account; everything else runs locally on Aer.
+Scripts that touch a real IBM backend (the `*_qpu*.py` files) need the three
+`IBM_*` environment variables and an active IBM Quantum account; everything
+else runs locally on Aer.
 
 ## Chapter map
 
