@@ -6,6 +6,9 @@ Export a quantum circuit to OpenQASM format.
 
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, qasm2 as qasm
 import matplotlib.pyplot as plt
+import os
+
+os.makedirs("out", exist_ok=True)
 
 q = QuantumRegister(1)
 c = ClassicalRegister(1)
